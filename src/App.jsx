@@ -16,7 +16,7 @@ const App = () => {
       <Router>
         <CssBaseline />
         <Navbar />
-        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', backgroundColor: '#ffffff' }}>
           <Routes>
             <Route
               path="/"

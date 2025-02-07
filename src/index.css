@@ -21,6 +21,7 @@ html, body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  background-color: #242424; /* Ensure background color is applied */
 }
 
 a {
@@ -37,6 +38,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%; /* Ensure it takes full height */
 }
 
 body {
@@ -50,6 +52,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #ffffff; /* Set body background color to white */
 }
 
 h1 {
