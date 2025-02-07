@@ -12,33 +12,29 @@ const Cancel = () => <h1>El pagament s'ha cancel·lat.</h1>;
 
 const App = () => {
   return (
-    <Router>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-        }}
-      >
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
+      <Router>
         <CssBaseline />
         <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Banner />
-                <ProductGrid />
-              </>
-            }
-          />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/cancel" element={<Cancel />} />
-        </Routes>
+        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Banner />
+                  <ProductGrid />
+                </>
+              }
+            />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
+          </Routes>
+        </Box>
         <Footer />
-      </Box>
-    </Router>
+      </Router>
+    </div>
   );
 };
 

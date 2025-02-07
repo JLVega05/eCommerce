@@ -74,43 +74,49 @@ const ProductGrid = () => {
   }
 
   return (
-    <Box sx={{ display: "flex", padding: "20px" }}>
+    <Box sx={{ display: "flex", padding: "20px", width: "100%", minWidth: "400px" }}> {/* Ensure full width and minimum width */}
       <SidebarFilters products={products} setFilteredProducts={setFilteredProducts} />
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={3}>
-          {filteredProducts.map((product) => (
-            <Grid item xs={12} sm={6} md={4} key={product.id}> {/* Usa el ID como clave */}
-              <Card>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={product.imageURL}
-                  alt={product.name}
-                  sx={{
-                    objectFit: "cover",
-                  }}
-                />
-                <CardContent>
-                  <Typography variant="h6">{product.name}</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {product.description}
-                  </Typography>
-                  <Typography variant="h6" sx={{ marginTop: "10px" }}>
-                    €{product.price}
-                  </Typography>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => handleBuyNow(product)}
-                    sx={{ marginTop: "10px" }}
-                  >
-                    Comprar ara
-                  </Button>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+        {filteredProducts.length === 0 ? (
+          <Typography variant="h6" sx={{ textAlign: "center", marginTop: "20px" }}>
+            No hi ha productes disponibles.
+          </Typography>
+        ) : (
+          <Grid container spacing={3} justifyContent="center"> {/* Center the grid */}
+            {filteredProducts.map((product) => (
+              <Grid item xs={12} sm={6} md={4} key={product.id}> {/* Usa el ID como clave */}
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={product.imageURL}
+                    alt={product.name}
+                    sx={{
+                      objectFit: "contain",
+                    }}
+                  />
+                  <CardContent>
+                    <Typography variant="h6">{product.name}</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {product.description}
+                    </Typography>
+                    <Typography variant="h6" sx={{ marginTop: "10px" }}>
+                      €{product.price}
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={() => handleBuyNow(product)}
+                      sx={{ marginTop: "10px" }}
+                    >
+                      Comprar ara
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </Box>
     </Box>
   );
